@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style type="text/css">
+#invoice-POS {
+  margin: 0 auto;
+  width: 44mm;
+  background: #FFF;
+}
+#invoice-POS ::selection {
+  background: #f31544;
+  color: #FFF;
+}
+#invoice-POS ::moz-selection {
+  background: #f31544;
+  color: #FFF;
+}
+#invoice-POS h1 {
+  font-size: 1.5em;
+  color: #222;
+}
+#invoice-POS h2 {
+  font-size: 0.9em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+#invoice-POS h3 {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 2em;
+}
+#invoice-POS p {
+  font-size: 0.7em;
+  color: #666;
+  line-height: 1.2em;
+}
+#invoice-POS #mid {
+  min-height: 80px;
+}
+#invoice-POS #bot {
+  min-height: 50px;
+}
+#invoice-POS #top .logo {
+  height: 60px;
+  width: 60px;
+  background: url(https://thehangroo.com/images/logo.png) no-repeat;
+  background-size: 60px 60px;
+}
+#invoice-POS .info {
+  display: block;
+  margin-left: 0;
+}
+#invoice-POS .title {
+  float: right;
+}
+#invoice-POS .title p {
+  text-align: right;
+}
+#invoice-POS table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#invoice-POS .tabletitle {
+  font-size: 0.7em;
+  background: #EEE;
+}
+#invoice-POS .service {
+  border-bottom: 1px solid #EEE;
+}
+#invoice-POS .item {
+  width: 24mm;
+}
+#invoice-POS .itemtext {
+  font-size: 0.8em;
+}
+#invoice-POS .payment {
+  font-size: 0.7em;
+}
+#invoice-POS #legalcopy {
+  margin-top: 5mm;
+}
+
+</style>
+</head>
+<body style="margin:0px;">
+
+  <div id="invoice-POS">
+    
+    <center id="top">
+      <div class="logo"></div>
+      <div class="info"> 
+        <h2>Hangroo Cafe</h2>
+      </div><!--End Info-->
+    </center><!--End InvoiceTop-->
+    
+    <div id="mid">
+      <div class="info">
+        <!-- <h2>Contact Info</h2> -->
+        <p> 
+            Address : Banthra Lucknow, UP 226401</br>
+            
+            Invoice #: HANBAN793723</br>
+            Date    : {% now "jS F Y H:i a" %}
+        </p>
+        <div class="info">Phone   : +91-7007675171</div>
+        <div class="info">Customer : {{ receipt_data.customer.username }}</div>
+      </div>
+    </div><!--End Invoice Mid-->
+    
+    <div id="bot">
+          <div id="table">
+            <table>
+              <tr class="tabletitle">
+                <td class="item"><h2>Item</h2></td>
+                <td class="Hours"><h2>Qty</h2></td>
+                <td class="Rate"><h2>Sub Tot.</h2></td>
+              </tr>
+			{% for order_item in receipt_data.order_items %}
+              <tr class="service">
+                <td class="tableitem"><p class="itemtext">{{ order_item.product.name|truncatechars:15 }}</p></td>
+                <td class="tableitem"><p class="itemtext">{{ order_item.qty }}</p></td>
+                <td class="tableitem"><p class="itemtext">₹{% widthratio order_item.qty 1 order_item.product.price %}</p></td>
+              </tr>
+			{% endfor %}
+
+              <tr class="">
+                
+                <td colspan="2" class="Rate">Service tax</td>
+                <td><h2>₹0</h2></td>
+              </tr>
+
+              <tr class="">
+
+                <td colspan="2">Total</td>
+                <td>₹{{ receipt_data.order_amount }}</td>
+              </tr>
+
+            </table>
+          </div><!--End Table-->
+
+          <div id="legalcopy">
+            <p class="legal"><strong>Thanks for choosing HangrooCafe!</strong><br>Items once sold can't be taken back.</p>
+          </div>
+          <br>
+        </div><!--End InvoiceBot-->
+  </div><!--End Invoice-->
+
+
+
+
+
+</body>
+</html>

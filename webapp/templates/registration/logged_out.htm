@@ -1,0 +1,28 @@
+<html>
+<head>
+{% load static %}
+<link rel="shortcut icon" type="image/x-icon"
+	href="{% static 'images/favicon.ico' %}" />
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/site.js' %}"></script>
+<link rel="stylesheet" type="text/css"
+	href="{% static 'css/style.css' %}" />
+{% load bootstrap4 %} {% bootstrap_css %} {% bootstrap_javascript %}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>{% block title %}Control Center{% endblock %}</title>
+
+</head>
+<body>
+	<div class="bg-image" style='background-image: url("{% static'images/background/login-background-image.jpg' %}");'>
+	</div>
+	<div class="login-form bg-secondary">
+
+		<p>Logged Out! Successfully</p>
+		<a href="{% url 'login'%}">Click here to login again.</a>
+	</div>
+</body>
+</html>

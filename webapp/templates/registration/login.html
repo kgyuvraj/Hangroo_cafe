@@ -1,0 +1,437 @@
+{% extends 'web_base_guest.html' %} {% block title %} {{ title }} {% endblock %} {% block body %} {% load static %}
+<!--========================== Intro Section ============================-->
+<section id="intro" class="clearfix">
+	<div class="container d-flex h-100">
+		<div class="row justify-content-center align-self-center">
+			<div class="col-md-6 intro-info order-md-first order-last">
+				<h2>
+					The Automation Platform for <span>Cloud </span>Cost Control
+				</h2>
+				<br>
+				<p>
+					<span> Smartcloud </span> is a AI driven cloud cost optimization
+					platform that turns utilization data into automated action. No
+					cloud management tool is easier to use
+				</p>
+				<!-- <div>
+            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+          </div> -->
+				<!-- Button to Open the Modal -->
+				<button type="button"
+					class="btn btn-primary btn-get-started scrollto"
+					data-toggle="modal" data-target="#modalLoginForm">Get
+					Started</button>
+
+
+			</div>
+
+			<div class="col-md-6 intro-img order-md-last order-first">
+				<img src="{% static 'img/intro-img.svg' %}" alt="" class="img-fluid">
+			</div>
+		</div>
+
+	</div>
+</section>
+<!-- #intro -->
+
+<main id="main"> <!--========================== About Us Section ============================-->
+<section id="about">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 col-md-6">
+				<div class="about-img">
+					<img src="{% static 'img/about-img.jpg' %}" alt="">
+				</div>
+			</div>
+			<div class="col-lg-7 col-md-6">
+				<div class="about-content">
+					<h2>The SMART CLOUD Platform</h2>
+					<h3>AI Framework as a Service to Optimzize, Automate & Manage
+						your Cloud</h3>
+					<p>SMART CLOUD helps in reducing cloud bills by solving
+						operational complexities; saves developers' time and improves
+						their productivity</p>
+					<p>The SMART CLOUD platform enables IT Ops, DevOps, and
+						Infrastructure teams to easily manage, govern, and optimize their
+						spend across multiple public clouds. SMART CLOUD platform makes it
+						easy to automate cost savings by rightsizing resources and
+						scheduling them to turn off when not being used. Optimize spend on
+						Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform,
+						and Alibaba Cloud and integrate with key operations functions
+						including ChatOps, CI/CD</p>
+					<ul>
+						<li><i class="ion-android-checkmark-circle"></i><b>Machine
+								Learning.</b> Resource scheduling and resizing based on
+							recommendations leveraging your resource utilization history.</li>
+						<li><i class="ion-android-checkmark-circle"></i><b>Automate.</b>
+							A robust policy engine automates schedule and sizing actions
+							based on your tags, and adds resources and users to teams for
+							simplified governance.</li>
+						<li><i class="ion-android-checkmark-circle"></i><b>Easy
+								to Use.</b> No scripting, no agents, and a 15-minute setup. Simple
+							UI can be used by anyone, with options for API access and
+							integrations as needed.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+<!-- #about --> <!--========================== Services Section ============================-->
+<section id="services" class="section-bg">
+	<div class="container">
+
+		<header class="section-header">
+			<h3>Major cloud challenges faced by oganizations</h3>
+			<p>Organizations that are taking advantage of cloud to fulfil
+				their demands are facing some major challenges. Operational
+				Inefficiency, Architectural Complexity & Predictability are a few of
+				those.</p>
+		</header>
+
+		<div class="row">
+
+			<div class="col-md-6 col-lg-4 wow bounceInUp"
+				data-wow-duration="1.4s">
+				<div class="box">
+					<div class="icon" style="background: #fceef3;">
+						<i class="ion-ios-analytics-outline" style="color: #ff689b;"></i>
+					</div>
+					<h4 class="title">
+						<a href="">Scaling</a>
+					</h4>
+					<h4 class="description">Achitectural complexity with
+						increasing organization scale</h4>
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-4 wow bounceInUp"
+				data-wow-duration="1.4s">
+				<div class="box">
+					<div class="icon" style="background: #fff0da;">
+						<i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i>
+					</div>
+					<h4 class="title">
+						<a href="">Resource Management</a>
+					</h4>
+					<h4 class="description">Growing cloud infrastructure resulting
+						operational complexities</h4>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s"
+				data-wow-duration="1.4s">
+				<div class="box">
+					<div class="icon" style="background: #e6fdfc;">
+						<i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i>
+					</div>
+					<h4 class="title">
+						<a href="">Integration</a>
+					</h4>
+					<h4 class="description">Increased dependency on third party
+						tools; no one-stop solution</h4>
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s"
+				data-wow-duration="1.4s">
+				<div class="box">
+					<div class="icon" style="background: #eafde7;">
+						<i class="ion-ios-speedometer-outline" style="color: #41cf2e;"></i>
+					</div>
+					<h4 class="title">
+						<a href="">Performance Management</a>
+					</h4>
+					<h4 class="description">Lack of operational efficiencies durig
+						peak time</h4>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.2s"
+				data-wow-duration="1.4s">
+				<div class="box">
+					<div class="icon" style="background: #e1eeff;">
+						<i class="ion-ios-world-outline" style="color: #2282ff;"></i>
+					</div>
+					<h4 class="title">
+						<a href="">Accuracy</a>
+					</h4>
+					<h4 class="description">Operational inefficiency caused by
+						human errors in routine tasks</h4>
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.2s"
+				data-wow-duration="1.4s">
+				<div class="box">
+					<div class="icon" style="background: #ecebff;">
+						<i class="ion-ios-clock-outline" style="color: #8660fe;"></i>
+					</div>
+					<h4 class="title">
+						<a href="">Scheduling</a>
+					</h4>
+					<h2 class="description">Lack of predictability for upcoming
+						demands</h2>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</section>
+<!-- #services --> <!--========================== Why Us Section ============================-->
+<section id="why-us" class="wow fadeIn">
+	<div class="container-fluid">
+
+		<header class="section-header">
+			<h3>Why choose us?</h3>
+			<p>We strives to solve cloud challenges for fast growing
+				organizations. Our framework empowers cloud engineers, facilitate
+				DevOps engineers and assist IT finance heads.</p>
+		</header>
+
+		<div class="row">
+
+			<div class="col-lg-6">
+				<div class="why-us-img">
+					<img src="{% static 'img/why-us.jpg' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="why-us-content">
+					<!-- 						<p>Molestiae omnis numquam corrupti omnis itaque. Voluptatum -->
+					<!-- 							quidem impedit. Odio dolorum exercitationem est error omnis -->
+					<!-- 							repudiandae ad dolorum sit.</p> -->
+					<!-- 						<p>Explicabo repellendus quia labore. Non optio quo ea ut -->
+					<!-- 							ratione et quaerat. Porro facilis deleniti porro consequatur et -->
+					<!-- 							temporibus. Labore est odio. Odio omnis saepe qui. Veniam eaque -->
+					<!-- 							ipsum. Ea quia voluptatum quis explicabo sed nihil repellat..</p> -->
+
+					<div class="features wow bounceInUp clearfix">
+						<i class="fa fa-diamond" style="color: #f058dc;"></i>
+						<h4>UI Driven</h4>
+						<p>Smart Cloud is intuitive and easy to learn for for
+							technical and non-technical users alike. iOS app also available.</p>
+					</div>
+
+					<div class="features wow bounceInUp clearfix">
+						<i class="fa fa-object-group" style="color: #ffb774;"></i>
+						<h4>Policy Engine</h4>
+						<p>Policies can automatically create schedules, accept
+							schedule recommendations, assign resources to teams, and
+							rightsize resources based on tags and metadata.</p>
+					</div>
+
+					<div class="features wow bounceInUp clearfix">
+						<i class="fa fa-language" style="color: #589af1;"></i>
+						<h4>Dashboard and Reporting</h4>
+						<p>Manage cloud resources across multiple resource types,
+							accounts, regions and providers in a single view you can’t get in
+							the cloud providers’ dashboards.</p>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- <div class="container">
+		<div class="row counters">
+
+			<div class="col-lg-3 col-6 text-center">
+				<span data-toggle="counter-up">274</span>
+				<p>Clients</p>
+			</div>
+
+			<div class="col-lg-3 col-6 text-center">
+				<span data-toggle="counter-up">421</span>
+				<p>Projects</p>
+			</div>
+
+			<div class="col-lg-3 col-6 text-center">
+				<span data-toggle="counter-up">1,364</span>
+				<p>Hours Of Support</p>
+			</div>
+
+			<div class="col-lg-3 col-6 text-center">
+				<span data-toggle="counter-up">18</span>
+				<p>Hard Workers</p>
+			</div>
+
+		</div>
+
+	</div> -->
+</section>
+
+<!--========================== Call To Action Section ============================-->
+<!-- <section id="call-to-action" class="wow fadeInUp">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9 text-center text-lg-left">
+				<h3 class="cta-title">Explore how it works</h3>
+				<p class="cta-text">We push our limits to make our customers
+					superheros</p>
+			</div>
+			<div class="col-lg-3 cta-btn-container text-center">
+				<a class="cta-btn align-middle" href="#">Request a demo</a>
+			</div>
+		</div>
+
+	</div>
+</section> -->
+<!-- #call-to-action --> <!--========================== Features Section ============================-->
+<section id="features">
+	<div class="container">
+
+		<div class="row feature-item">
+			<div class="col-lg-6 wow fadeInUp">
+				<img src="{% static 'img/features-1.svg' %}" class="img-fluid"
+					alt="">
+			</div>
+			<div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+				<h4>Connect your infrastructure</h4>
+				<p>Our framework consists of pre-built connectors that establish
+					a connection to different platforms of your infrastructure.</p>
+				<p>AI engine Edison runs 24x7 to detect anomalies through the
+					established connection and analyzes the same to prepare a strategic
+					plan.</p>
+			</div>
+		</div>
+
+		<div class="row feature-item mt-5 pt-5">
+			<div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
+				<img src="{% static 'img/features-2.svg' %}" class="img-fluid"
+					alt="">
+			</div>
+
+			<div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
+				<h4>Strategize a personalized program plan</h4>
+				<p>General solutions may or may not work for your unique
+					infrastructure. You will get the personalized set of
+					recommendations, ready to act on.</p>
+				<p>Get all the necessary reports and CTA’s at the platforms you
+					are already using like slack, jira, flock, gmail, etc</p>
+				<p>Connect Smart Cloud to your cloud provider(s) with limited
+					access – an AWS IAM Role or a dedicated credential in Azure or
+					Google Cloud</p>
+			</div>
+
+		</div>
+
+	</div>
+</section>
+<!-- #features --> 
+<!--========================== Team Section ============================-->
+<!-- <section id="team" class="section-bg">
+	<div class="container">
+		<div class="section-header">
+			<h3>Team</h3>
+			<p>We work with our customers to make in depth strategies to
+				understand and overcome their cloud challenges.</p>
+		</div>
+
+		<div class="row">
+
+			<div class="col-lg-3 col-md-6 wow fadeInUp">
+				<div class="member">
+					<img src="{% static 'img/team-1.jpg' %}" class="img-fluid" alt="">
+					<div class="member-info">
+						<div class="member-info-content">
+							<h4>Walter White</h4>
+							<span>Chief Executive Officer</span>
+							<div class="social">
+								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
+									class="fa fa-facebook"></i></a> <a href=""><i
+									class="fa fa-google-plus"></i></a> <a href=""><i
+									class="fa fa-linkedin"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+				<div class="member">
+					<img src="{% static 'img/team-2.jpg' %}" class="img-fluid" alt="">
+					<div class="member-info">
+						<div class="member-info-content">
+							<h4>Sarah Jhonson</h4>
+							<span>Product Manager</span>
+							<div class="social">
+								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
+									class="fa fa-facebook"></i></a> <a href=""><i
+									class="fa fa-google-plus"></i></a> <a href=""><i
+									class="fa fa-linkedin"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+				<div class="member">
+					<img src="{% static 'img/team-3.jpg' %}" class="img-fluid" alt="">
+					<div class="member-info">
+						<div class="member-info-content">
+							<h4>William Anderson</h4>
+							<span>CTO</span>
+							<div class="social">
+								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
+									class="fa fa-facebook"></i></a> <a href=""><i
+									class="fa fa-google-plus"></i></a> <a href=""><i
+									class="fa fa-linkedin"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+				<div class="member">
+					<img src="{% static 'img/team-4.jpg' %}" class="img-fluid" alt="">
+					<div class="member-info">
+						<div class="member-info-content">
+							<h4>Amanda Jepson</h4>
+							<span>COE</span>
+							<div class="social">
+								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
+									class="fa fa-facebook"></i></a> <a href=""><i
+									class="fa fa-google-plus"></i></a> <a href=""><i
+									class="fa fa-linkedin"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section> -->
+<!-- #team --> 
+<!--========================== Clients Section ============================-->
+<!-- <section id="clients" class="wow fadeInUp">
+	<div class="container">
+
+		<header class="section-header">
+			<h3>Our Clients</h3>
+		</header>
+
+		<div class="owl-carousel clients-carousel">
+			<img src="{% static 'img/clients/client-1.png' %}" alt=""> <img
+				src="{% static 'img/clients/client-2.png' %}" alt=""> <img
+				src="{% static 'img/clients/client-3.png' %}" alt=""> <img
+				src="{% static 'img/clients/client-4.png' %}" alt=""> <img
+				src="{% static 'img/clients/client-5.png' %}" alt=""> <img
+				src="{% static 'img/clients/client-6.png' %}" alt=""> <img
+				src="{% static 'img/clients/client-7.png' %}" alt=""> <img
+				src="{% static 'img/clients/client-8.png' %}" alt="">
+		</div>
+
+	</div>
+</section> -->
+<!-- #clients --> 
+</main>
+
+{% endblock %}

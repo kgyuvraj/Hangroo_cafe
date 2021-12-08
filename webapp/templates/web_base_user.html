@@ -1,0 +1,32 @@
+{% extends 'web_base.html' %} {% block title %} {{ title }} {% endblock %} 
+{% load static %} {% load user_tags %} 
+{% block navbar %} 
+{% if request.user.is_staff %}
+{% if request.user|has_group:"Admin" %}
+<li><a href="/dashboard">Dashboard</a></li>
+<li><a href="/redbull-stock">Redbull</a></li>
+{% endif %}
+<li><a href="/pending-orders">Pending Orders</a></li>
+<li><a href="/pending-items">Pending Items</a></li>
+
+<li><a href="/admin">Admin</a></li>
+{% endif %}
+<li><a href="/accounts/logout/"><b><i
+			class="fa fa-power-off"></i> Log Out</b></a></li>
+{% endblock %}
+
+
+{% block footer %}
+<footer id="footer" class="section-bg">
+<div class="container">
+	<div class="copyright">
+		<strong> &copy; </strong>Copyright <strong>SMART CLOUD</strong>. All
+		Rights Reserved
+	</div>
+	<div class="credits">
+		Designed & Devoloped by <a href="#">Galvosoft</a>
+	</div>
+</div>
+</footer>
+{% endblock %}
+	

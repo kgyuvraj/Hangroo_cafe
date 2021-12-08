@@ -1,0 +1,14 @@
+{
+	"hangroo_settings": [
+		{
+			"key_name": "ORDER_PAGE_REFRESH_TIME",
+			"key_value": "60",
+			"description":"time in seconds to refresh the pending order page"
+		},
+		{
+			"key_name": "ITEM_PAGE_REFRESH_TIME",
+			"key_value": "60",
+			"description":"time in seconds to refresh the pending item page"
+		}
+	]
+}

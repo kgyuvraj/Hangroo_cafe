@@ -1,0 +1,83 @@
+{% extends 'web_base_user.html' %} {% block title %} {{ title }} {% endblock %}
+{% block body %}
+<br>
+<br>
+<br>
+
+<div class="wrapper container">
+  
+  
+<div class="row">
+<div class="col-md-8 col-lg-10 col-sm-12 col-xs-12" align="center">
+<p>Showing data from {{ from_date }} to {{ to_date }}</p>
+</div>
+<div class="col-md-4 col-lg-2 col-sm-12 col-xs-12">
+<form>
+    <div class="form-group float-right">
+      <label for="sel1">Date filter</label>
+      <select class="form-control" id="dashboard_date_range" onchange="on_dashboard_date_filter_change()">
+        <option>-----</option>
+        <option>today</option>
+        <option>yesterday</option>
+        <option>last 7 days</option>
+        <option>last 15 days</option>
+        <option>last 30 days</option>
+        <option>this month</option>
+      </select>
+    </div>
+  </form>
+  </div>
+</div>
+<div class="row">
+	<div class="col-md-8 col-lg-10 col-sm-12 col-xs-12" align="center">
+		
+		<strong>Total Sale : ₹ {{ total_sale.total_sale }} </strong>
+		<div class="row">
+			<div class="col-sm-12 col-lg-6" id="dashboard1" style="height: 250px; margin: 0 auto"
+				align="center"></div>
+			<div class="col-sm-12 col-lg-6" id="dashboard2" style="height: 250px; margin: 0 auto"
+				align="center"></div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-lg-6" id="dashboard3" style="height: 250px; margin: 0 auto"
+				align="center"></div>
+			<div class="col-sm-12 col-lg-6" id="dashboard4" style="height: 250px; margin: 0 auto"
+				align="center"></div>
+		</div>
+	</div>
+
+	<div class="card-group-vertical col-md-4 col-lg-2 col-sm-12 col-xs-12" style="align-content:center; align-items: center;"  >
+		<div class="card bg-primary text-white text-center"
+			data-toggle="tooltip" data-placement="left"
+			title="Total payment made in cash mode">
+			<div class="card-body">Cash</div>
+			<b class="card-text fas fa-money-bill-wave fa-2x" aria-hidden="true"></b> <br>
+			<h2 class="card-text">
+				<strong>{{ total_sale.amount_paid_cash }}</strong>
+			</h2>
+		</div>
+		<div class="card bg-primary text-white text-center"
+			data-toggle="tooltip" data-placement="left"
+			title="Total payment made in online mode">
+			<div class="card-body">Online</div>
+			<b class="card-text fab fa-google-pay fa-2x" aria-hidden="true"></b> <br>
+			<h2 class="card-text">
+				<strong>{{ total_sale.amount_paid_online }}</strong>
+			</h2>
+			<!-- <small class="card-footer text-small">LAST 24 Hours</small> -->
+		</div>
+		<div class="card bg-danger text-white text-center"
+			data-toggle="tooltip" data-placement="left"
+			title="Total payment not recieved">
+			<div class="card-body">Pending</div>
+			<b class="card-text fa fa-window-close fa-2x" aria-hidden="true"></b>
+			<br>
+			<h2 class="card-text">
+				<strong>{{ total_sale.amount_pending }}</strong>
+			</h2>
+			<!-- <small class="card-footer text-small">LAST 24 Hours</small> -->
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}

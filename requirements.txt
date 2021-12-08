@@ -1,0 +1,50 @@
+Django==2.1.15
+django-bootstrap4
+django-fa==1.0.0
+django-jquery==3.1.0
+coreapi 
+pyyaml
+django-autoslug==1.9.8
+django-crispy-forms==1.9.2
+phonenumbers
+Pillow==8.0.1
+django-enumfields==2.0.0
+#django-material-admin
+
+
+####### for authentication token frameworrk
+django-rest-knox
+
+####### for audit trail
+django-auditlog==0.4.7
+
+###### django table template
+#django-tables2==2.3.2
+
+
+####### for mysql connection
+#mysql-connector-python==8.0.5
+#mysqlclient 
+dj-database-url==0.5.0
+psycopg2-binary
+
+##### for vault connection
+#django-vault-helpers==0.8.1
+
+####### for social login
+social-auth-app-django==4.0.0
+social-auth-core==3.3.3
+
+####### html minification 
+htmlmin
+
+####### celery scheduler
+redis
+celery==4.4.7
+django-celery-beat
+django-celerybeat-status==0.0.10
+ec2-metadata
+pytz
+
+###### app usage
+django-piwik==0.1

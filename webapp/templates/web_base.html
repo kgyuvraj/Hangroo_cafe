@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Smart Cloud</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="keywords">
+<meta content="" name="description">
+{% load piwik_tags %}
+{% load static %} {% load user_tags %}
+<!-- font awesome -->
+<script src="https://kit.fontawesome.com/55159751a9.js"
+	crossorigin="anonymous"></script>
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700"
+	rel="stylesheet">
+
+<!-- Favicons -->
+<link href="{% static 'img/favicon.png' %}" rel="icon">
+<link href="{% static 'img/apple-touch-icon.png' %}"
+	rel="apple-touch-icon">
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+         google.charts.load('current', {packages: ['corechart']});     
+      </script>
+
+<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+
+<!-- Bootstrap CSS File -->
+<link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}"
+	rel="stylesheet">
+<!-- Libraries CSS Files -->
+<link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}"
+	rel="stylesheet">
+<link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+<link href="{% static 'lib/ionicons/css/ionicons.min.css' %}"
+	rel="stylesheet">
+<link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}"
+	rel="stylesheet">
+<link href="{% static 'lib/lightbox/css/lightbox.min.css' %}"
+	rel="stylesheet">
+
+<!-- Main Stylesheet File -->
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+	<!--========================== Header ============================-->
+	<div id="preloader" style="display: none">
+		<div id="loader"></div>
+	</div>
+	<div id="toastDiv" class="toast" 
+		style="position: fixed; top: 15%; right: 2%;z-index: 1000">
+		<div class="toast-body" id="toastMessage">
+			
+<!-- 			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" -->
+<!-- 				aria-label="Close"> -->
+<!-- 				<span aria-hidden="true">&times;</span> -->
+<!-- 			</button> -->
+		</div>
+	</div>
+
+	<header id="header">
+		{% block social_links %}
+		{% endblock %}	
+		<div class="container">
+			<div class="logo float-left">
+				<!-- Uncomment below if you prefer to use an image logo -->
+				<h1 class="text-light">
+					<a href="/" class="scrollto"><i
+						class="fab fa-cloudversify fa-1x"></i> <span>Hangroo Cafe</span></a>
+				</h1>
+			</div>
+			<nav class="main-nav float-right d-none d-lg-block">
+				<ul>
+					{% block navbar %} 
+					{% endblock %}
+				</ul>
+			</nav>
+			<!-- .main-nav -->
+
+		</div>
+	</header>
+	<!-- #header -->
+	<div id="content">{% block body %} Welcome to Hangroo Cafe Control
+		Center {% endblock %}</div>
+	{% block footer %}{% endblock %}
+
+	<!-- JavaScript Libraries -->
+	<script type="text/javascript" src="{% static 'js/chart_util.js' %}"></script>
+	<script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+	<script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+	<script src="{% static 'lib/mobile-nav/mobile-nav.js' %}"></script>
+	<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+	<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+	<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+	<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+	<script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+
+	<!-- Template Main Javascript File -->
+	<script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'js/site.js' %}"></script>
+{% tracking_code %}
+</body>
+</html>

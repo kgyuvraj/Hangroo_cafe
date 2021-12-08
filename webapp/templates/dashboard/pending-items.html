@@ -1,0 +1,69 @@
+{% extends 'web_base_user.html' %} {% block title %} {{ title }} {% endblock %} {% block body %} {% load static %}
+<!--========================== Intro Section ============================-->
+<br>
+<br>
+<br>
+<section id="intro" class="clearfix">
+	<div class="container">
+	<header class="section-header">
+	<h3>Pending Items</h3>
+	{% if new_order %}
+	<audio id="chatAudio" >
+                <source src="{% static 'media/railroad_crossing.mp3' %}"
+				type="audio/mpeg">
+    </audio>
+    <script>
+                var audio = document.getElementById('chatAudio');
+                audio.play()
+    </script>
+    {% endif %}
+	</header>
+		<div class="row">
+			{% for item in pending_items.table_items %}
+			<div class="col-md-4 col-xl-2 col-lg-3 col-sm-12 col-xs-12">
+				<a href="admin/order/orderitem/{{ item.id }}/change/">
+					<div  class="card bg-danger text-white text-center"
+						data-toggle="tooltip" data-placement="left"
+						title="Pending Item">
+						<div class="card-body"><h3><b>{{ item.remark }}</b></h3></div>
+						<b class="card-text fas fa-utensils fa-2x" aria-hidden="true"></b> 
+						<br>
+						<h2 class="">
+							<b>{{ item.qty }}</b>
+							<br>
+							<strong>{{ item.product.name }}</strong>
+						</h2>
+						<!-- <small class="card-footer text-small">LAST 24 Hours</small> -->
+					</div>
+				</a>
+			</div>
+			
+			{% endfor %}
+					
+			{% for item in pending_items.packing_items %}
+			<div class="col-md-4 col-xl-2 col-lg-3 col-sm-12 col-xs-12 ">
+				<a href="admin/order/orderitem/{{ item.id }}/change/">
+					<div  class="card bg-primary text-white text-center"
+						data-toggle="tooltip" data-placement="left"
+						title="Pending Item">
+						<div class="card-body"><h3><b>{{ item.remark }}</b></h3></div>
+						<b class="card-text fas fa-box-open fa-2x" aria-hidden="true"></b> 
+						<br>
+						<h2 class="">
+							<b>{{ item.qty }}</b>
+							<br>
+							<strong>{{ item.product.name }}</strong>
+						</h2>
+						<!-- <small class="card-footer text-small">LAST 24 Hours</small> -->
+					</div>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<script>
+window.setTimeout(function () {
+    location.href = "pending-items";
+}, {{ page_refresh_time|default:"30000" }}); // refresh/redirect after 10 seconds</script>
+{% endblock %}

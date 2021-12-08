@@ -1,0 +1,196 @@
+{% extends 'web_base_user.html' %} {% block title %} {{ title }} {% endblock %} {% block body %} {% load static %}
+<!--========================== Intro Section ============================-->
+<br>
+<br>
+<br>
+{% load tz %}
+<section class="section-bg">
+	<div class="container">
+		<header class="section-header">
+			{% if pending_orders.created_orders|length > 0 %}
+			<h3>New Orders</h3>
+			<div class="">
+				
+				<div class="" id="accordion_created_orders">
+					{% for created_order in pending_orders.created_orders %}
+					<div class="card" >
+						<div class="card-header" id="headingOne">
+							<h5 class="mb-0">
+								<button class="btn btn-link text-danger" type="button"
+									data-toggle="collapse" data-target="#O{{ created_order.id }}"
+									aria-expanded="false" aria-controls="O{{ created_order.id }}">
+									{{ created_order.customer.first_name }} {{ created_order.customer.last_name }}-{{ created_order.id }}
+							    	<div class="text-left text-dark"> 
+							    	<diva><strong>Order Type : </strong>{{ created_order.order_type }}</diva>
+							    	{% if created_order.remark|length > 1 %}
+							    	<br>
+							    	<diva><strong>Remark : </strong>{{ created_order.remark }}</diva>
+							    	{% endif %}
+							    	<br>
+							    	{% if created_order.wait_time > 30 %}
+							    	<diva class="text-danger">
+							    	{% else %}
+							    	<diva>
+							    	{% endif %}
+							    	<strong>Waiting Since : </strong>{{ created_order.wait_time }} mins.</diva>
+							    	<br>
+							    	<diva><strong>Order Amount : </strong>{{  created_order.order_amount }}</diva>
+							    	</div>
+							    </button>
+							</h5>
+							    	 
+							<div style="text-align: right;">
+								<a class="text-danger" onclick='accept_order("{{ created_order.id }}")' href="#"><i class="fas fa-check"></i>accept&nbsp</a>
+								<!-- <a target="_blank" href="admin/order/order/{{ created_order.id }}/change/"> 
+								<i class="fas fa-edit"></i>edit</a>-->
+							</div>
+						</div>
+						<div id="O{{ created_order.id }}" class="collapse show" align="center"
+							aria-labelledby="headingOne"
+							data-parent="#accordion_created_orders">
+							<div class="card-body">
+								<div class="panel-body">
+									<table class="table">
+										<thead>
+											<tr>
+												<th scope="col">Name</th>
+												<th scope="col">Qty</th>
+												<th scope="col">Price</th>
+												<th scope="col">Remark</th>
+											</tr>
+										</thead>
+										<tbody>
+											{% for created_order_item in created_order.order_items %}
+												{% if not created_order_item.status == 'CANCELLED' %}
+													{% if created_order_item.status == 'PENDING' %}
+													<tr class="bg-primary text-white">
+													{% else %}
+													<tr class="bg-success text-white">
+													{% endif %}
+														<th scope="row">{{ created_order_item.product.name }}</th>
+														<td>{{ created_order_item.qty }}</td>
+														<td>{{ created_order_item.product.price }}</td>
+														<td>{{ created_order_item.remark }}</td>
+														<!-- <td><a target="_blank" href="admin/order/orderitem/{{ created_order_item.id }}/change/">
+															<i class="fas fa-edit"></i>
+															edit
+															</a>
+														</td> -->
+													</tr>
+												{% endif %}
+											{% endfor %}
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					{% endfor %} {% else %} No New orders {% endif %}
+				</div>
+			</div>
+		</header>
+	</div>
+</section>
+<section class="clearfix">
+	<div class="container">
+		<header class="section-header">
+			{% if pending_orders.pending_orders|length > 0 %}
+			<h3>Pending Orders</h3>
+			<div>
+				<div class="" id="accordion_pending_orders">
+					{% for pending_order in pending_orders.pending_orders %}
+					<div class="card" >
+						<div class="card-header" id="headingOne">
+							<h5 class="mb-0">
+							{% if pending_order.order_type == 'HOME_DELIVERY' %}
+								<button class="btn btn-link text-primary" type="button"
+							{% elif pending_order.order_type == 'TAKE_AWAY' %}
+							<button class="btn btn-link text-warning" type="button"
+							{% else %}
+							<button class="btn btn-link text-danger" type="button"
+							{% endif %}
+							data-toggle="collapse" data-target="#O{{ pending_order.id }}"
+							aria-expanded="true" aria-controls="O{{ pending_order.id }}">
+							{{ pending_order.customer.first_name }} {{ pending_order.customer.last_name }}-{{ pending_order.id }}
+							<div class="text-left text-dark"> 
+					    	<diva><strong>Order Type : </strong>{{ pending_order.order_type }}</diva>
+					    	{% if pending_order.remark|length > 1 %}
+					    	<br>
+					    	<diva><strong>Remark : </strong>{{ pending_order.remark }}</diva>
+					    	{% endif %}
+					    	<br>
+					    	{% if pending_order.wait_time > 30 %}
+					    	<diva class="text-danger">
+					    	{% else %}
+					    	<diva>
+					    	{% endif %}
+					    	<strong>Waiting Since : </strong>{{ pending_order.wait_time }} mins.</diva>
+					    	<br>
+					    	<diva><strong>Order Amount : </strong>{{  pending_order.order_amount }}</diva>
+					    	</div>
+							</button>
+							</h5>
+							<div style="text-align: right;">
+								<a class="text-danger" href='javascript:print_receipt("{{ pending_order.id }}")'><i class="fas fa-receipt"></i> receipt&nbsp</a>
+								<a target="_blank" href="admin/order/order/{{ pending_order.id }}/change/">
+								<i class="fas fa-edit"></i>edit</a>
+							</div>
+						</div>
+						<div id="O{{ pending_order.id }}" class="collapse show" align="center"
+							aria-labelledby="headingOne"
+							data-parent="#accordion_pending_orders">
+							<div class="card-body">
+								<div class="panel-body">
+									<table class="table">
+										<thead>
+											<tr>
+												<th scope="col">Name</th>
+												<th scope="col">Qty x Price</th>
+												<th scope="col">Sub Total</th>
+												<th scope="col">Remark</th>
+											</tr>
+										</thead>
+										<tbody>
+											{% for pending_order_item in pending_order.order_items %}
+												{% if not pending_order_item.status == 'CANCELLED' %}
+													{% if pending_order_item.status == 'PENDING' %}
+													<tr id="O{{ pending_order_item.id }}" class="bg-primary text-white">
+													{% else %}
+													<tr id="O{{ pending_order_item.id }}" class="bg-success text-white">
+													{% endif %}
+														<th scope="row">{{ pending_order_item.product.name }}</th>
+														<td>{{ pending_order_item.qty }} x {{ pending_order_item.product.price }}</td>
+														<td>{% widthratio pending_order_item.qty 1 pending_order_item.product.price %}</td>
+														<td>{{ pending_order_item.remark }}
+														<br>
+														<br>
+														<a class="text-white" onclick='complete_order_item("{{ pending_order_item.id }}")' href="javascript:void(0)">
+															<i class="fas fa-check"></i>
+															done
+															</a>
+															<a class="text-light" target="_blank" onclick='complete_order_item("{{ pending_order_item.id }}")'href="admin/order/orderitem/{{ pending_order_item.id }}/change/">
+															<i class="fas fa-edit"></i>
+															edit
+															</a>
+														</td>
+													</tr>
+												{% endif %}
+											{% endfor %}
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %} {% else %} No Pending Orders {% endif %}
+				</div>
+			</div>
+		</header>
+	</div>
+</section>
+<script>
+window.setTimeout(function () {
+    location.href = "pending-orders";
+}, {{ page_refresh_time|default:"30000" }}); // refresh/redirect after 10 seconds</script>
+{% endblock %}

@@ -1,0 +1,103 @@
+---
+- hosts: client
+  become: true
+  become_method: sudo
+  vars:
+    appname: "{{  lookup('env','service_name')  }}"
+    appuser: fc-appuser
+    databag_src: "./"
+
+  tasks:
+    - name: "Remove the older backup"
+      file:
+        dest: /apps/smartcloud_previous
+        state: absent
+
+    - name: "Create backup of existing job"
+      shell: mv /apps/smartcloud /apps/smartcloud_previous
+
+    - name: update smartcloud code 
+      copy:
+        src: ./
+        dest: /apps/smartcloud/
+        #backup: true
+
+    - name: update smartcloud systemd file 
+      copy:
+        src: "scripts/{{  item  }}.service"
+        dest: "/etc/systemd/system/{{  item  }}.service"
+      with_items:
+        - smartcloud
+        - smartcloud-worker
+        - smartcloud-beat
+
+    - name: Create a directory if it does not exist
+      file:
+        path: /etc/systemd/system/{{  item  }}.service.d
+        state: directory
+      with_items:
+        - smartcloud
+        - smartcloud-worker
+        - smartcloud-beat
+
+    - name: update smartcloud systemd properties 
+      copy:
+        src: scripts/override.conf
+        dest: "/etc/systemd/system/{{  item  }}.service.d/override.conf"
+      with_items:
+        - smartcloud
+        - smartcloud-worker
+        - smartcloud-beat
+
+    - name: "force systemd to reread configs"
+      systemd: 
+        name: smartcloud 
+        daemon_reload: yes
+      with_items:
+        - smartcloud
+        - smartcloud-worker
+        - smartcloud-beat
+
+    - name: update app permissions
+      file: 
+        dest: /apps/{{  appname  }} 
+        owner: "{{  appuser  }}" 
+        group: "{{  appuser  }}" 
+        mode: "u=rwx,g=r,o="
+        recurse: yes
+       
+    - name: update log permissions
+      file: 
+        dest: "/var/log/django"
+        state: directory
+        owner: "{{  appuser  }}" 
+        group: "{{  appuser  }}" 
+        mode: "u=rwx,g=rx,o=rx"
+        recurse: true
+
+    - name: update dependencies 
+      shell: sh /apps/smartcloud/scripts/init.sh
+      become: yes
+      become_user: "{{  appuser  }}"
+
+    - name: run database migrations 
+      shell: source /apps/smartcloud/scripts/source.sh && python3 /apps/smartcloud/manage.py migrate
+      become: yes
+      become_user: "{{  appuser  }}"
+      args:
+        chdir: /apps/smartcloud
+
+    - name: Restart smartcloud service
+      systemd: 
+        name: smartcloud 
+        state: restarted
+
+    - name: Restart smartcloud-worker service
+      systemd: 
+        name: smartcloud-worker 
+        state: restarted
+
+    - name: Restart smartcloud-beat service
+      systemd: 
+        name: smartcloud-beat
+        state: restarted

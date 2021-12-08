@@ -1,0 +1,410 @@
+{% extends 'web_base_guest.html' %} {% block title %} {{ title }} {% endblock %} {% block body %} {% load static %}
+
+<br>
+<br>
+<br>
+<br>
+<section id="faq" style="margin-bottom: 30px;">
+	<div class="container">
+		<header class="section-header">
+			<h3>Frequently Asked Questions</h3>
+			<!-- 			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem -->
+			<!-- 				accusantium doloremque</p> -->
+		</header>
+
+		<ul id="faq-list" class="wow fadeInUp">
+			<li><a data-toggle="collapse" class="collapsed"
+				href="#how-to-create-readonly-aws-iam-role"> How to create
+					readonly AWS IAM role for Smart Cloud? <i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="how-to-create-readonly-aws-iam-role" class="collapse"
+					data-parent="#faq-list">
+					<ol>
+						<li value="1">
+							<p>
+								Navigate to <a href="https://aws.amazon.com/">https://aws.amazon.com</a>
+								and log in.
+							</p>
+						</li>
+						<li value="2">In the top menu bar, click <b>Services</b>.
+							<p>
+								<b>Note:</b> Amazon is continually updating their service, so
+								screenshots may differ from the AWS interface you see.
+							</p>
+							<p>
+								<a href="{% static 'img/aws_iam/services.png' %}"><img
+									class="img-fluid" data-mc-width="560" data-mc-height="185"
+									src="{% static 'img/aws_iam/services.png' %}" tabindex=""></a>
+							</p></li>
+						<li value="3">In the <b>Security, Identity, and
+								Compliance</b> section, click <b>IAM</b>.
+							<p>
+								<a href="{% static 'img/aws_iam/clickIAM.png' %}"><img
+									class="img-fluid" data-mc-width="622" data-mc-height="688"
+									src="{% static 'img/aws_iam/clickIAM.png' %}" tabindex=""></a>
+							</p></li>
+						<li value="4">In the left-hand menu, click <b>Roles</b>.
+							<p>
+								<a href="{% static 'img/aws_iam/clickroles.png' %}"><img
+									class="img-fluid" data-mc-width="182" data-mc-height="423"
+									src="{% static 'img/aws_iam/clickroles.png' %}" tabindex=""></a>
+							</p></li>
+						<li value="5">Click <b>Create Role</b>.
+						<li value="6">In the <b>Select Type of Trusted Entity</b>
+							section, select <b>Another AWS account</b>. Paste in the Account
+							ID <b>672690304710</b>
+							<p>
+								<a href="{% static 'img/aws_iam/cross_account.png' %}"><img
+									class="img-fluid" data-mc-width="856" data-mc-height="558"
+									src="{% static 'img/aws_iam/cross_account.png' %}" tabindex=""></a>
+							</p>
+						</li>
+						<li value="7">In the next screen. Search for the policy <b>ReadOnlyAccess</b>
+
+							<p>
+								<a href="{% static 'img/aws_iam/readonly-policy.png' %}"> <img
+									class="img-fluid" data-mc-width="1088" data-mc-height="243"
+									src="{% static 'img/aws_iam/readonly-policy.png' %}"
+									tabindex=""></a>
+							</p>
+
+						</li>
+
+						<li value="8">Click <b>Next: Review</b>.
+						</li>
+						<li value="9">In the <b>Role Name</b> field, enter a
+							descriptive name for the role.
+							<p class="Note">
+								<b>Note:</b> The role name cannot be edited once it is created.
+							</p>
+							<p>
+								<a href="{% static 'img/aws_iam/role_name.png' %}"><img
+									class="img-fluid" data-mc-width="1097" data-mc-height="531"
+									src="{% static 'img/aws_iam/role_name.png' %}" tabindex=""></a>
+							</p></li>
+						<li value="10">
+							<p>
+								Once you have reviewed the the IAM information, click <b>Create
+									Role</b>.
+							</p>
+							<p>The newly created IAM role appears in the role list.</p>
+							<p>
+								Now copy the <b>Role ARN</b> and use that in Smart Cloud console
+							</p>
+							<p>
+								<a href="{% static 'img/aws_iam/role_list.png' %}"><img
+									class="img-fluid" data-mc-width="840" data-mc-height="227"
+									src="{% static 'img/aws_iam/role_list.png' %}" tabindex=""></a>
+							</p>
+						</li>
+					</ol>
+					<p></p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq1">What
+					is SmartCloud and how does it work? <i class="ion-android-remove"></i>
+			</a>
+				<div id="faq1" class="collapse" data-parent="#faq-list">
+					<p>SmartCloud is a SaaS platform that automatically identifies
+						and eliminates public cloud resource waste, reducing spending by
+						65% or more — think “Nest for the cloud.” AWS, Azure, and Google
+						users such as McDonald’s, Sysco Foods, Workfront, Avid, and Sage
+						Software have used SmartCloud to cut their cloud spending by
+						millions of dollars. SmartCloud helps companies like these
+						optimize and govern cloud usage by integrating cost control into
+						their DevOps processes. It’s easy to get started using SmartCloud:
+						Set up your SmartCloud account.(Free Trial. No credit card
+						required.) Connect with your cloud service provider to discover
+						your cloud computing resources. Start “parking” your cloud
+						computing resources with scheduled “on/off” times.</p>
+				</div></li>
+
+			<li><a data-toggle="collapse" href="#faq2" class="collapsed">Why
+					do I need SmartCloud — what problem does it solve? <i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq2" class="collapse" data-parent="#faq-list">
+					<p>The popularity of cloud service providers like Amazon Web
+						Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), and
+						Alibaba Cloud has exploded because they enable easy and rapid
+						access to computing services with no upfront costs. But hundreds
+						of thousands of cloud customers are now realizing a downside to
+						this ease of use: Cloud computing resources are “always on” unless
+						customers specifically turn them off. Which means customers are
+						paying for computing time they don’t actually use—for example,
+						between 7:00 p.m. and 7:00 a.m. and on weekends. SmartCloud is an
+						easy-to-use platform designed to solve this problem by scheduling
+						on/off times (also known as “parking”) for your idle cloud
+						computing resources, so you pay only for the resources you’re
+						using.</p>
+				</div></li>
+
+			<li><a data-toggle="collapse" href="#faq3" class="collapsed">Why
+					do I need SmartCloud — what problem does it solve?<i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq3" class="collapse" data-parent="#faq-list">
+					<p>The popularity of cloud service providers like Amazon Web
+						Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), and
+						Alibaba Cloud has exploded because they enable easy and rapid
+						access to computing services with no upfront costs. But hundreds
+						of thousands of cloud customers are now realizing a downside to
+						this ease of use: Cloud computing resources are “always on” unless
+						customers specifically turn them off. Which means customers are
+						paying for computing time they don’t actually use—for example,
+						between 7:00 p.m. and 7:00 a.m. and on weekends. SmartCloud is an
+						easy-to-use platform designed to solve this problem by scheduling
+						on/off times (also known as “parking”) for your idle cloud
+						computing resources, so you pay only for the resources you’re
+						using.</p>
+				</div></li>
+
+			<li><a data-toggle="collapse" href="#faq4" class="collapsed">Which
+					cloud service providers do you support?<i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq4" class="collapse" data-parent="#faq-list">
+					<p>SmartCloud supports Amazon Web Services (AWS) including AWS
+						GovCloud (US), Microsoft Azure, Google Cloud Platform (GCP), and
+						Alibaba Cloud.</p>
+				</div></li>
+
+			<li><a data-toggle="collapse" href="#faq5" class="collapsed">What
+					actions does SmartCloud take on resources? <i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq5" class="collapse" data-parent="#faq-list">
+					<p>SmartCloud starts and stops resources, based upon a schedule
+						you configure and apply. Your resources will not be terminated
+						(except in the case of AWS Auto Scaling Groups). In AWS, ensure
+						that you have selected stop, not terminate, as the default
+						shutdown behavior: shutdownbehavior-300x31 In the AWS and GCP
+						consoles, when the instances are parked, an orderly ACPI shutdown
+						is used and they will be in the “stopped” state. In Azure, and
+						orderly ACPI shutdown is also used, but your resources will be in
+						the “stop (deallocate)” state when parked.</p>
+				</div></li>
+
+			<li><a data-toggle="collapse" href="#faq6" class="collapsed">Who
+					uses SmartCloud? <i class="ion-android-remove"></i>
+			</a>
+				<div id="faq6" class="collapse" data-parent="#faq-list">
+					<p>SmartCloud is used by public cloud customers of a variety of
+						sizes and industries, including startups through Fortune 500
+						companies. Customers include McDonald’s, Fox, Workfront, Sage
+						Software, Sysco, Siemens, National Geographic, Avid, and more.
+
+						Typically, the main users at a company are the same as those who
+						manage cloud infrastructure, which can include Development,
+						Operations, DevOps, ITOps, or Cloud/Infrastructure/Architecture
+						managers.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq7">Why
+					should I use SmartCloud instead of scripting my own solution?<i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq7" class="collapse" data-parent="#faq-list">
+					<p>It is certainly possible to script a straightforward
+						resource scheduling solution within your cloud provider. However,
+						this is more costly than you might think: it requires developer
+						time to create, as well as the opportunity cost of the distraction
+						from your core business. Don’t discount maintenance time – as you
+						add more resources, types of resources, and accounts, your
+						developers will need to update your solution to support those.
+						Plus, schedule exceptions always arise, which requires more costly
+						time for your developers to communicate with internal users to
+						override the schedules. Many of our customers SmartCloud’s pricing
+						will almost certainly win out in a cost comparison. Scripting an
+						on/off solution is also a complex undertaking. SmartCloud pulls
+						your multiple accounts at multiple cloud providers into a single
+						dashboard and provides Role-Based Access Control, which would be
+						difficult to script. SmartCloud can park instances/VMs, scale
+						groups, and databases – all adding to the development complexity.
+						See more about SmartCloud vs. scripting in this comparison sheet.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq8">What
+					is SmartCloud's pricing model? <i class="ion-android-remove"></i>
+			</a>
+				<div id="faq8" class="collapse" data-parent="#faq-list">
+					<p>SmartCloud is charged on a monthly subscription basis, based
+						on the number of cloud resources discovered in your account. There
+						are several pricing tiers available, including a free tier. See
+						our pricing information learn more. There are no upfront costs,
+						and no hidden fees.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq9">Do
+					I have to download any software or plug-ins? <i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq9" class="collapse" data-parent="#faq-list">
+					<p>No. There’s no downloading and no plug-ins. SmartCloud is
+						completely web-based, and can be accessed from your web browser.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq10">How
+					long does the SmartCloud setup process take?<i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq10" class="collapse" data-parent="#faq-list">
+					<p>The SmartCloud setup process typically takes fifteen minutes
+						or less. It’s simple: Set up your SmartCloud account.(Free Trial.
+						No credit card required.) Connect with your cloud service provider
+						to discover your cloud resources. Start “parking” your cloud
+						computing resources with scheduled “on/off” times.</p>
+				</div></li>
+
+			<li><a data-toggle="collapse" class="collapsed" href="#faq11">How
+					do I know which cloud resources I should park? <i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq11" class="collapse" data-parent="#faq-list">
+					<p>SmartCloud makes “SmartParking” recommendations based on
+						resource utilization patterns, to turn resources off when they are
+						typically not used. See how it works. We will also recommend
+						“parkable” instances based on resource tags – for example,
+						resources tagged “dev”, “test”, “staging”, or “QA” can likely be
+						turned off during nights and on weekends.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq12">How
+					much will I save using SmartCloud? <i class="ion-android-remove"></i>
+			</a>
+				<div id="faq12" class="collapse" data-parent="#faq-list">
+					<p>On average, SmartCloud users save $12 for every dollar spent
+						on SmartCloud. Try the SmartCloud savings calculator to find your
+						estimated savings.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq13">What
+					kind of cloud resources can SmartCloud manage?<i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq13" class="collapse" data-parent="#faq-list">
+					<p>SmartCloud can manage the following resources: AWS – EC2
+						instances, Auto Scaling Groups, Neptune Databases and RDS
+						instances including Aurora clusters. Azure – virtual machines and
+						Azure Scale Sets. GCP – virtual machine instances, both
+						preemptible and non-preemptible, Google Cloud SQL Databases, and
+						Google Managed Instance groups, both with and without autoscaling.
+						Alibaba Cloud – ECS instances.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq14">When
+					will I start seeing reductions in my cloud bill? <i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq14" class="collapse" data-parent="#faq-list">
+					<p>Once you have parked some of your cloud resources, you will
+						immediately start cutting costs. SmartCloud will estimate those
+						savings for you.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq15">What
+					does a typical parking schedule look like?<i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq15" class="collapse" data-parent="#faq-list">
+					<p>SmartCloud provides a few commonly-used parking schedules
+						for you to apply, such as parked 7:00 p.m. and 7:00 a.m. and on
+						Saturdays and Sundays. You can also choose to create your own. Or,
+						use SmartCloud’s SmartParking recommendations to put resources on
+						schedules to park when they are typically idle. Some customers
+						choose to use an always OFF schedule for all of their
+						non-production servers, and have their developers temporarily
+						override the schedule when they need to get work done.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq16">How
+					does SmartCloud support enterprise users?<i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq16" class="collapse" data-parent="#faq-list">
+					<p>Features that make it easy for you to manage your resources
+						include: Schedule Override – temporarily override parking
+						schedules to use resources outside of normal hours. Operational
+						Dashboard – manage cloud resources across multiple credentials,
+						accounts, regions and providers in a single view. Policy Engine –
+						use policies to apply parking schedules and assign resources to
+						user-limited teams. Reporting – view, download, and email savings
+						reports, organized by teams and credentials. Users & Teams –
+						govern user access and define permissions with role-based access
+						controls. Single Sign-On – add and govern users using SSO from
+						ADFS, AzureAD, Centrify, Okta, OneLogin, or Ping Identity. Public
+						REST API – easily integrate SmartCloud into your CI/CD processes
+						for continuous cost control. ChatOps – control your resources and
+						override schedules with Slack and Microsoft Teams bots.
+						Notifications – get notified of SmartCloud updates & activities
+						via email or in your collaboration tools.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq17">What
+					time zones are SmartCloud schedules based on? <i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq17" class="collapse" data-parent="#faq-list">
+					<p>Each parking schedule allows the selection of a local time
+						zone. For example, if you have a team in London, England you can
+						select the correct GMT / UTC timezone and park instances for your
+						UK team outside their local office hours. We recommend always
+						adding a description to the schedules, for example, “Parked 23:00
+						– 06:00 London Time Monday to Sunday” to help when reviewing
+						schedules.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq18">Do
+					you have a mobile app?<i class="ion-android-remove"></i>
+			</a>
+				<div id="faq18" class="collapse" data-parent="#faq-list">
+					<p>Yes, there is a free SmartCloud iOS app. An Android app is
+						planned as well.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq19">What
+					access does SmartCloud need to my cloud account? <i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq19" class="collapse" data-parent="#faq-list">
+					<p>SmartCloud can manage resources in AWS, Azure, and GCP. We
+						take a minimal approach to the permissions needed for this access.
+						SmartCloud can use IAM Roles or IAM Users to access AWS, Limited
+						Access Roles to access Azure, or Service Accounts for GCP. See
+						more details on the exact permissions used for each of these and
+						how to set them up.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq20">What
+					reporting does SmartCloud provide?<i class="ion-android-remove"></i>
+			</a>
+				<div id="faq20" class="collapse" data-parent="#faq-list">
+					<p>SmartCloud provides a reporting dashboard with a variety of
+						financial, resource-based, and administrative report options. For
+						example, see daily savings by cloud provider, or cost vs. savings,
+						by team, or resource uptime. A full list of reports is available
+						in the SmartCloud user guide. These reports can also be
+						downloaded, or email them to yourself or your coworkers in a
+						single occurrence or on a regular customizable schedule.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq21">
+					How does SmartCloud handle Role-Based Access Controls? <i
+					class="ion-android-remove"></i>
+			</a>
+				<div id="faq21" class="collapse" data-parent="#faq-list">
+					<p>SmartCloud has four user roles: Super Admins have full
+						access; Team Leads can manage users and resources on their teams;
+						Team Members can only manage resources on the teams to which
+						they’ve been assigned; and Purchasers have access to
+						billing/payment info. More information is available in our user
+						guide. There is also a Team structure in SmartCloud. Resources can
+						each be assigned to a single team. Users can be assigned to
+						multiple teams for limited access.</p>
+				</div></li>
+			<li><a data-toggle="collapse" class="collapsed" href="#faq1">What
+					happens if I do a free trial and then do not subscribe to
+					SmartCloud? <i class="ion-android-remove"></i>
+			</a>
+				<div id="faq1" class="collapse" data-parent="#faq-list">
+					<p>After the free trial ends, you have the option of continuing
+						to use SmartCloud with either a paid or free subscription. If you
+						use the free tier, you can continue to use SmartCloud for free for
+						as long as you’d like. If a valid cloud provider credential is not
+						maintained, or the account is not in good standing for 30 days,
+						your account will be deleted. Contact us with any further
+						questions.</p>
+				</div></li>
+
+		</ul>
+
+	</div>
+</section>
+<!-- #faq -->
+{% endblock %}

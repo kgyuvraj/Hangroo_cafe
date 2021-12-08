@@ -1,0 +1,14 @@
+[Unit]
+Description=Production version of hangroo webapp
+
+[Service]
+WorkingDirectory=/apps/hangroo/
+Type=simple
+User=root
+Restart=on-abnormal
+RestartSec=5
+ExecStart=/bin/python3 manage.py runserver 0.0.0.0:8081 --insecure
+
+[Install]
+# When should this service be triggered? (this is the equivalent of SysV's runlevel 3)
+WantedBy=multi-user.target
